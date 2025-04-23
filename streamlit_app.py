@@ -1,11 +1,5 @@
-# 加入中文字體（以微軟雅黑為例）
+import streamlit as st
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontProperties
-
-font = FontProperties(fname='msyh.ttc', size=14)  # 你可以換成 SimHei.ttf 或其他中文字體路徑
-plt.title('预测金价', fontproperties=font)
-plt.ylabel('美元/盎司', fontproperties=font)
-
 
 # 標題
 st.title("黃金價格預測小工具")

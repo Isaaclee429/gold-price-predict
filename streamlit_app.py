@@ -20,9 +20,16 @@ st.metric("預測金價（美元/盎司）", f"${predicted_price:.2f}")
 
 # 畫圖
 fig, ax = plt.subplots()
-ax.bar(['預測金價'], [predicted_price], color='gold')
+bars = ax.bar(['預測金價'], [predicted_price], color='gold')
 ax.axhline(base_price, color='red', linestyle='--', label=f'目前金價 ${base_price}')
 ax.set_ylabel("美元/盎司")
 ax.set_title("模擬黃金價格")
 ax.legend()
+
+# 加上數值標籤
+for bar in bars:
+    yval = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width() / 2, yval + 20, f"${yval:.0f}", ha='center', va='bottom', fontsize=12)
+
 st.pyplot(fig)
+

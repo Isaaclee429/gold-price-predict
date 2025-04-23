@@ -1,5 +1,21 @@
-import streamlit as st
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 使用黑体支持中文
+matplotlib.rcParams['axes.unicode_minus'] = False
+
+base_price = 3480
+predicted_price = 3750
+
+plt.figure(figsize=(8, 6), dpi=150)
+plt.bar(['预测值'], [predicted_price], color='gold')
+plt.axhline(base_price, color='red', linestyle='--', linewidth=2, label=f'基准价 ${base_price}')
+plt.text(0, predicted_price + 100, f"${predicted_price}", ha='center', fontsize=14)
+plt.title('预测金价', fontsize=16)
+plt.ylabel('美元/盎司', fontsize=14)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
 
 # 標題
 st.title("黃金價格預測小工具")

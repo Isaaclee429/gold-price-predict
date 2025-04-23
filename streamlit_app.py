@@ -1,20 +1,10 @@
+# 加入中文字體（以微軟雅黑為例）
 import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 使用黑体支持中文
-matplotlib.rcParams['axes.unicode_minus'] = False
+from matplotlib.font_manager import FontProperties
 
-base_price = 3480
-predicted_price = 3750
-
-plt.figure(figsize=(8, 6), dpi=150)
-plt.bar(['预测值'], [predicted_price], color='gold')
-plt.axhline(base_price, color='red', linestyle='--', linewidth=2, label=f'基准价 ${base_price}')
-plt.text(0, predicted_price + 100, f"${predicted_price}", ha='center', fontsize=14)
-plt.title('预测金价', fontsize=16)
-plt.ylabel('美元/盎司', fontsize=14)
-plt.legend()
-plt.tight_layout()
-plt.show()
+font = FontProperties(fname='msyh.ttc', size=14)  # 你可以換成 SimHei.ttf 或其他中文字體路徑
+plt.title('预测金价', fontproperties=font)
+plt.ylabel('美元/盎司', fontproperties=font)
 
 
 # 標題
